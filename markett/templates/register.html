@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}Register Page{% endblock %}
+
+{% block content %}
+<body class="text-center">
+  <div class="container">
+    <div class="d-flex justify-content-center align-items-center vh-100">
+      <div class="p-5 border rounded bg-dark" style="max-width: 500px; width: 90%; min-height: 600px;">
+        <form method="POST" class="form-register text-white">
+          {{ form.hidden_tag() }}
+
+          <h2 class="mb-4" style="font-size: 2rem; font-weight: 600;">
+            Please Create your Account
+          </h2>
+
+          <div class="mb-3 text-start">
+            {{ form.username.label(class="form-label") }}
+            {{ form.username(class="form-control", placeholder="User Name") }}
+          </div>
+
+          <div class="mb-3 text-start">
+            {{ form.email_address.label(class="form-label") }}
+            {{ form.email_address(class="form-control", placeholder="Email Address") }}
+          </div>
+
+          <div class="mb-3 text-start">
+            {{ form.password1.label(class="form-label") }}
+            {{ form.password1(class="form-control", placeholder="Password") }}
+          </div>
+
+          <div class="mb-4 text-start">
+            {{ form.password2.label(class="form-label") }}
+            {{ form.password2(class="form-control", placeholder="Confirm Password") }}
+          </div>
+
+          <!-- Create Account button -->
+          <div class="mb-4">
+            {{ form.submit(class="btn btn-primary w-100 btn-lg") }}
+          </div>
+
+          <!-- Login link section -->
+          <div class="text-center">
+            <small style="color: #ccc; font-weight: 300;">
+              Already have an account?
+            </small>
+            <a class="btn btn-outline-light btn-sm ms-2" href="{{ url_for('login_page') }}">
+              Login
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+{% endblock %}
