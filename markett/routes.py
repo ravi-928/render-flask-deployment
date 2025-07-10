@@ -84,7 +84,13 @@ def logout_page():
     return redirect(url_for("home_page"))
 
 
-
+@app.route('/additems')
+def add_items():
+    item1 = Item(name="Phone", price=5000, barcode="123456789012", description="A good phone")
+    item2 = Item(name="Laptop", price=30000, barcode="987654321098", description="A fast laptop")
+    db.session.add_all([item1, item2])
+    db.session.commit()
+    return "Items added successfully!"
 
 
 
